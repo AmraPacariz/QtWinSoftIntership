@@ -1,0 +1,6 @@
+1.      Кога ги дефинираме функциите copy1 и copy2 во p09_13.c, првиот аргумент мора да е доволно голем за да ги добие вредностите на вториот аргумент.
+       Што тоа значи?
+       -za da gi preneseme site elementi mora da imame dovolno mesto 
+2.      Зошто вториот аргумент на двете функции во р09_13.с е деклариран како const char *?
+        -taa niza nema da ja menuvame
+             
