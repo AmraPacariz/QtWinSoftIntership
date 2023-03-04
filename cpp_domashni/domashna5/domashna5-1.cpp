@@ -4,7 +4,7 @@ using namespace std;
 char opcii(); 
 Zivotno vnesiZivotno();
 int main()
-{   Zivotno zivotni[10];
+{   Zivotno zivotni[100];
     int brojac=0;
     char opcija=opcii();
    
@@ -16,12 +16,11 @@ int main()
             cout<<"a)Dodadi novo zivotno"<<endl;
             brojac++;
             zivotni[brojac-1]=vnesiZivotno();
-            cout<<endl;
             break;
         case 'b':
             cout<<"b)Prikazi brojna sostojba"<<endl;
-            cout<<"Momentalno imame: "<<brojac<<" zivotni"<<endl;
-            cout<<endl;
+            cout<<"Momentalno imame: "<<brojac<<"zivotni"<<endl;
+        
             break;
         case 'c':
             cout<<"c)Prikazi zivotni od dadena grupa"<<endl;
@@ -31,34 +30,35 @@ int main()
             for (int i = 0; i < brojac; i++)
             {
                 if(zivotni[i].getTip() == grupa){
-                    zivotni[brojac].prikaziPodatoci();
+                    zivotni[i].prikaziPodatoci(); cout<<endl;
                 }
-                cout<<endl;
             }
             break;
         case 'd':
             cout<<"d)Prikazi site zivotni "<<endl;
             for (int i = 0; i < brojac; i++)
                 
-                zivotni[brojac].prikaziPodatoci();
-                cout<<endl;
+                zivotni[i].prikaziPodatoci(); cout<<endl;
             break;
         case 'e':
-            cout<<"e)Prikazi zivotni za vakcinacija"<<endl;
-            for (int i = 0; i < brojac; i++)
+        cout<<"e)Prikazi zivotni za vakcinacija"<<endl;
+        for (int i = 0; i < brojac; i++)
+        {
+            if(zivotni[i].presmetajVakcinacija() < 8)
             {
-                if(zivotni[brojac].presmetajVakcinacija() < 8)
-                {
-                    zivotni[brojac].prikaziPodatoci();
-                    cout<<endl;
-                }
-            } 
-            break;
+                zivotni[i].prikaziPodatoci(); cout<<endl;
+            }
+        }
+            
+           
+            break; 
+
         default:
          
             break;
         }
      opcija=opcii(); 
+      cout<<endl;
     }
     return 0;
 }
@@ -106,9 +106,9 @@ Zivotno vnesiZivotno()
     cin >> vMesec;
     cin >> vGodina;
 
-    Zivotno novoZivotno(kime, ktip, kpol, 
+    Zivotno novo (kime, ktip, kpol, 
                       rDen, rMesec, rGodina,
                       dDen, dMesec, dGodina,
                       vDen, vMesec, vGodina);
-    return novoZivotno;
+    return novo;
 }

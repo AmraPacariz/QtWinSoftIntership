@@ -36,9 +36,9 @@ void Zivotno:: prikaziPodatoci() const
     
 
 }
-int days_between_dates(std::tm date1, std::tm date2) {
-    std::time_t time1 = std::mktime(&date1);
-    std::time_t time2 = std::mktime(&date2);
+int days_between_dates(tm date1, tm date2) {
+    time_t time1 = mktime(&date1);
+    time_t time2 = mktime(&date2);
 
     if (time1 == -1 || time2 == -1) {
         // Error occurred
@@ -47,35 +47,40 @@ int days_between_dates(std::tm date1, std::tm date2) {
 
     const int seconds_per_day = 60 * 60 * 24;
 
-    int difference_in_seconds = std::difftime(time2, time1);
+    int difference_in_seconds = difftime(time2, time1);
     int difference_in_days = difference_in_seconds / seconds_per_day;
 
     return difference_in_days;
 }
 int Zivotno:: presmetajVakcinacija()//vakjam za kolku dena treba da se vakcinira
 {
-   time_t t = time(nullptr); // земање на моменталното време
-   struct tm* now = localtime(&t); // конверзија на секундите во локално време
+   time_t now = time(0);
    
-   int dayDenes = now->tm_mday; // денот на моменталниот ден (1-31)
-   int monthDenes = now->tm_mon + 1; // месецот на моменталниот ден (0-11, затоа +1)
-   int yearDenes = now->tm_year + 1900; // годината на моменталниот ден (годината од 1900)
-    
-    int dayV=datumNaPoslednaVakcinacija.getDay();
-    int monthV=datumNaPoslednaVakcinacija.getMonth();
-    int yearV=datumNaPoslednaVakcinacija.getYear();
-    tm date1 = {0, 0, 0, dayV, monthV, yearV}; // 1st February, 2022
-    tm date2 = {0, 0, 0, dayDenes,monthDenes, yearDenes}; // 1st March, 2022
-     int days = days_between_dates(date1, date2);
-    if(tip='c' )
+
+
+     struct tm posledna_vakcinacija;
+
+    posledna_vakcinacija.tm_year = datumNaPoslednaVakcinacija.getYear()-1900;
+    posledna_vakcinacija.tm_mon = datumNaPoslednaVakcinacija.getMonth()-1;
+    posledna_vakcinacija.tm_mday = datumNaPoslednaVakcinacija.getDay();
+    posledna_vakcinacija.tm_hour = 0;
+    posledna_vakcinacija.tm_min = 0;
+    posledna_vakcinacija.tm_sec = 0;
+     time_t posledna_vakcinacija_2 = mktime(&posledna_vakcinacija);
+
+    const int seconds_per_day = 60 * 60 * 24;
+    int difference_in_seconds = difftime(now, posledna_vakcinacija_2);
+    int days = difference_in_seconds / seconds_per_day;
+
+    if( tip =='c' )
     {
-        return abs(days-365);
+        return 365-days;
     }
-    else if (tip='p'){
-        return abs(days-183);
+    else if ( tip =='p'){
+        return 183-days;
     }
-    else if (tip='v'){
-        return abs(days-244);
+    else if ( tip == 'v'){
+        return 244-days;
     }
     return 0;
 }
