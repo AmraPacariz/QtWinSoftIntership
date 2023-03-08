@@ -24,19 +24,19 @@ int main()
                     if (opc=='p')
                     {
                         ++p;
-                        profesori[p-1].postavi();
+                        profesori[p-1]=profesori[p-1].postavi();
                         cout<<"Vnesen profesor"<<endl; 
                     }
                     else if (opc=='a')
                     {
                         ++a;
-                        asistenti[a-1].postavi();
+                        asistenti[a-1]=asistenti[a-1].postavi();
                         cout<<"Vnesen asistent"<<endl; 
                     }
                     else if (opc=='d')
                     {
                         ++d;
-                        demonstratori[d-1].postavi();
+                      demonstratori[d-1]=demonstratori[d-1].postavi();
                         cout<<"Vnesen demonstrator"<<endl; 
                     }
                     else
@@ -47,22 +47,29 @@ int main()
                 cout<<"PROFESORI:"<<endl;
                 if(p==0){cout<<"Nema Profesori"<<endl;}
                 for (int i = 0; i < p; i++)
-                {
+                {   cout<<"["<<i+1<<"]"<<endl;
+
                     profesori[i].prikazi_podatociP();
+                    cout<<endl;
                 }
                 cout<<"ASISTENTI:"<<endl;
                 if(a==0){cout<<"Nema Asistenti"<<endl;}
                 for (int i = 0; i < a; i++)
                 {
+                     cout<<"["<<i+1<<"]"<<endl;
                     asistenti[i].prikazi_podatociA();
+                      cout<<endl;
                 }
                 cout<<"DEMONSTRATORI:"<<endl;
                 if(d==0){cout<<"Nema Demonstratori"<<endl;}
                 for (int i = 0; i < d; i++)
                 {
+                    cout<<"["<<i+1<<"]"<<endl;
                     demonstratori[i].prikazi_podatociD();
+                      cout<<endl;
                 }
                 break;    
+
             
             default:
                 break;

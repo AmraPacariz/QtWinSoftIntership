@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#include "Vraboten.h"
+#include "vraboten.h"
 
 class Demonstrator: public Vraboten {
     private:
@@ -17,6 +17,6 @@ class Demonstrator: public Vraboten {
         Demonstrator  postavi();
         // int get_vremeOd() const;
         // int get_vremeDo() const;
-        void prikazi_podatociD() const;
+        void prikazi_podatociD() ;
 };
 #endif

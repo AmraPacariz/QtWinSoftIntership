@@ -11,7 +11,7 @@ Vraboten:: Vraboten(char *ime, char *prezime, int g) {
     this->prezime = new char[strlen(prezime)+1 ];
     strcpy( this->prezime, prezime);
     godina = g;
-  //  cout<<"Vlegov vo konstruktorot ime: "<<this->ime<<"prezime:"<<this->prezime<<"godina:"<<godina<<endl;
+   cout<<"Vlegov vo konstruktorot ime: "<<this->ime<<"prezime:"<<this->prezime<<"godina:"<<godina<<endl;
 }
 
 Vraboten Vraboten::postavi() {
@@ -38,7 +38,7 @@ Vraboten Vraboten::postavi() {
 //     return godina;
 // }
 
-void Vraboten:: prikazi_podatociV() const {//ne pecati ime i prezime nz zasto a za godina mi dava nesto random
+void Vraboten:: prikazi_podatociV() {//ne pecati ime i prezime nz zasto a za godina mi dava nesto random
     cout << "Ime: " << ime << endl;
     cout << "Prezime: " << prezime << endl;
     cout << "Godina na vrabotuvanje: " <<godina<< endl;

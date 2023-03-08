@@ -42,7 +42,7 @@ Demonstrator Demonstrator::postavi() {
 //     return vremeDo;
 // }
 
-void Demonstrator:: prikazi_podatociD() const {
+void Demonstrator:: prikazi_podatociD()  {
      prikazi_podatociV();
      cout<<"Pocetok na rabotno vreme :  "<<vremeOd<<endl;
      cout<<"Kraj na rabotno vreme :  "<<vremeDo<<endl;

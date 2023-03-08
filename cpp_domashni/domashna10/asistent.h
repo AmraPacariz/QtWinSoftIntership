@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#include "Vraboten.h"
+#include "vraboten.h"
 
 class Asistent: public Vraboten {
     private:
@@ -18,6 +18,6 @@ class Asistent: public Vraboten {
         // char* get_zvanje() const;
         // char* get_mentor() const;
         // int get_brPredmeti() const;
-        void prikazi_podatociA() const;
+        void prikazi_podatociA() ;
 };
 #endif

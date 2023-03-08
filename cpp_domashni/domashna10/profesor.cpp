@@ -48,7 +48,7 @@ Profesor Profesor::postavi() {
 //     return brPredmeti;
 // }
 
-void Profesor:: prikazi_podatociP() const {
+void Profesor:: prikazi_podatociP() {
      prikazi_podatociV();
     cout << "Zvanje: " << zvanje << endl;
     cout << "Oblast: " << oblast << endl;

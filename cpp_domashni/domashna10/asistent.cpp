@@ -48,7 +48,7 @@ Asistent Asistent::postavi() {
 //     return brPredmeti;
 // }
 
-void Asistent:: prikazi_podatociA() const {
+void Asistent:: prikazi_podatociA()  {
      prikazi_podatociV();
     cout << "Zvanje: " << zvanje << endl;
     cout << "Mentor: " << mentor << endl;
